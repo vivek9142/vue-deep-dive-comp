@@ -1,11 +1,11 @@
 <template>
     <section>
   <base-card>
-    <template v-slot:header>
+  <!-- let's say badge list dont have header slot in it so default value will be printed -->
+    <!-- <template v-slot:header>
       <h2>Available Badges</h2>
-    </template>
-    <!-- default slot -->
-    <template v-slot:default>
+    </template> -->
+    <template #default>
       <ul>
       <li>
         <base-badge type="admin" caption="ADMIN"></base-badge>
