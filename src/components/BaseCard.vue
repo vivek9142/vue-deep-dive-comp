@@ -1,24 +1,37 @@
 <template>
     <div>
-        <slot></slot>   
+        <header>
+            <slot name="header"></slot> 
+        </header>  
+        <slot></slot>
     </div>
 </template>
 /*
-now in between comp we need to have any content we want
-if we take it as props  and try to use it like prop.
-it will not work
+you can add names to slots with the name, attribute on the slot element.
+And here we could give this a name of header,It can be anything,doesn't have to be the 
+wrapping elements' name. 
 
-instead it's this slots feature which I mentioned. Vue has a 
-special syntax for this exact scenario where you want to use 
-your own component as a wrapper around dynamic content.
-So around different kinds of HTML content and for that,
-you simply go to your component that should be the wrapper.
-You don't use props in there but instead you use a special element,
-the slot element like this
+You don't have to name all slots. If you leave one unnamed slot, that will be the default 
+slot, but you must only have one unnamed slot. And now you can assign the content to the 
+different slots, for example in UserInfo, we could now go to our header here
+and now here I want to tell Vue that this content, the h3 tag and the base tag
+should go to the header slot and for that you wrap it with a template tag,
+which is a default HTML element and on that template tag, which holds the content that 
+should go into your name slot,
 
-goto userinfo you'll see the basecard wraps the content
-and slot displays dynamic content on screen
- */
+you add a special directive, the v-slot directive. The v-slot directive can be used to let 
+Vue know where certain content should go to. Now, you will let Vue know where the content 
+should go to by adding an argument to this directive,which you do by adding a colon,
+and then the name of your slot. 
+
+Now I have a named slot with a name of header here and therefore we can add header as an 
+argument here.And this tells Vue that the content inside of the template will go to this 
+named slot. Now as a side note, the template is a default HTML tag, which doesn't render 
+anything to the screen though, which is why we use it as a container here.
+
+Now, if you then have content left, which is not in a template with the slot,
+that content will automatically go to the default slot.
+*/
 
 <script>
 export default {
