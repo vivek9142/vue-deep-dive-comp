@@ -34,19 +34,22 @@ export default {
 </script>
 
 /*
-So if I define a section h2 style here in the Badgelist.vue file
-This does not, important, this does not mean that this styling would only affect this 
-template.Instead, indeed, it affects all files.
+BadgeList and UserInfo have in common and that's the section
+but actually not just a section but the section and the styling that's being applied
+to that section. You might remember in the last lecture,
+I copied the styling to ensure that the section has the same style
+in both components.
 
-if you have styles in individual components, it often would be nice if you could scope
-these styles to those components to ensure that they really only affect the template
-of the component in which you define them, and vue supports this,
-there is a scoped attribute which you can add to that style tag. And if you do add it,
-that tells vue that the styles defined in here should only affect the template that lives 
-in the same file, and no other component, no child component,
-no sibling component, nothing else in your app.
+an alternative would have been to simply make section a global style
+here in App.vue where the style is not scoped but another alternative would be
+to create a standalone component which simply contains the section
+with the attached styling and which then is flexible
+regarding the content it receives. 
 
-goto userinfo.vue
+I'm naming it like this because I want to create a certain look which is sometimes referred 
+to as a Card Look in the web.Basically this look of having a drop shadow and rounded corners,
+
+goto basecard.vue
 */
 <style>
 html {
