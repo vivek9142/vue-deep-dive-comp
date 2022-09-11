@@ -69,24 +69,21 @@ body {
 }
 </style>
 
-Here is an additional thing you should know about dynamic components.
-Let's say in Manage Goals, we had an input field. it would be realistic that we have one 
-component or multiple components where the user is able to enter something
-and that we then load this component dynamically with component.
 
-Now here's the problem we'll face with that. In Manage Goals we have the input field, 
-but if I enter a goal here and then before I save it, I decide to go back to Active Goals
-and then I come back to Manage Goals. You see what I entered is lost.
-And the reason for that is that when we switch our components,
-the old component is really destroyed and removed from the DOM. And that of course means
-that anything we entered here into this input field is lost if we switch away
-because the input field is removed from the DOM. And when we go back to Manage Goals,
-a brand new input field is added again.
+Let me stick to this active goals component And let's say here, we have a button.
+Where I have a text of set goal,and when this button is clicked, I wanna save my goal.
 
-Now this is maybe not what you want and Vue has a solution for that as well.
-It has another built in component, the keep-alive component. And you can wrap that around 
-your dynamic component. So keep-alive works together with this component component,
-with this dynamic component concept.
+I get my alert here. This works, but in most applications,
+you probably don't wanna show an alert like this. This built in alert is not really nice to 
+look at, it probably doesn't fit the styling of the rest of your application,
+and therefore, this is maybe not what you wanna do. Instead, maybe you want to build your 
+own alert, your own model. So your own overlay dialogue, which you wanna show.
+And that's exactly what I'll do here.
 
-Keep-alive allows you to tell Vue that components should not be removed and deleted entirely
-but that instead their state should be saved. That they should be cached behind the scenes.
+I'll build my ErrorAlert.vue component here.
+
+
+So we don't need to pass data around with custom events, which the error alert emits here.
+Instead, we can handle everything here in the component where the error is generated and 
+yet hand off the styling and the markup off that dialogue to a totally different component.
+Which is a really nice way of splitting responsibility.
